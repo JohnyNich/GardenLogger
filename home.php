@@ -14,6 +14,8 @@ if (!isset($_SESSION['loggedin'])) {
     <title>Home Page</title>
     <link href="style.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <!-- Bootstrap version 4.5.2 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   </head>
   <body class="loggedin">
     <nav class="navtop">
@@ -23,7 +25,7 @@ if (!isset($_SESSION['loggedin'])) {
         <a href="view.php"><i class="fas fa-eye"></i>View</a>
         <a href="edit.php"><i class="fas fa-edit"></i>Edit</a>
         <a href="settings.php"><i class="fas fa-cog"></i>Settings</a>
-	<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
+	      <a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
       </div>
     </nav>
     <div class="content">
