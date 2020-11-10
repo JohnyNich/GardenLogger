@@ -36,9 +36,12 @@ $stmt->close();
   <body class="loggedin">
     <nav class="navtop">
       <div>
-        <h1>Garden Logger</h1>
+        <h1><a href="home.php">Garden Logger</a></h1>
         <a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
-        <a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
+        <a href="view.php"><i class="fas fa-eye"></i>View</a>
+        <a href="edit.php"><i class="fas fa-edit"></i>Edit</a>
+        <a href="settings.php"><i class="fas fa-cog"></i>Settings</a>
+			  <a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>a
       </div>
     </nav>
     <div class="content">
