@@ -72,23 +72,23 @@ body {
 .navtop {
   background-color: #2F3947;
   height: 60px;
-  width: 100$;
+  width: 100%;
   border: 0;
 }
 
 .navtop div {
   display: flex;
-  margin: 0 autp;
+  margin: 0 auto;
   width: 1000px;
   height: 100%;
 }
 
-.navtop div h1, .navtop div a {
+.navtop div a h1, .navtop div a {
   display: inline-flex;
   align-items: center;
 }
 
-.navtop div h1 {
+.navtop div h1 a {
   flex: 1;
   font-size: 24px;
   padding: 0;
