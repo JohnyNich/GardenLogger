@@ -153,3 +153,9 @@ body.loggedin {
   padding: 5px;
   margin: 0 0 10px 0;
 }
+
+/* For search box */
+
+input[type=checkbox] {
+  margin-left: 10px;
+}

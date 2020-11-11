@@ -13,9 +13,12 @@ if (!isset($_SESSION['loggedin'])) {
     <meta charset="utf-8">
     <title>Home Page</title>
     <link href="style.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-    <!-- Bootstrap version 4.5.2 -->
+x    <!-- Bootstrap version 4.5.2 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   </head>
   <body class="loggedin">
     <nav class="navtop">
@@ -30,6 +33,27 @@ if (!isset($_SESSION['loggedin'])) {
     </nav>
     <div class="content">
       <h2>View table</h2>
+      <button type="button" data-toggle="collapse" data-target="#search" class="btn btn-primary btn-block">Search</button>
+      <div id="search" class="collapse">
+        <form action="search.php" method="post">
+          <div class="form-group">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="moisture">Soil moisture:</label>
+            <input type="number" id="moisture" name="moisture" min="0" max="100" step="1" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="light_intensity">Light intensity:</label>
+            <input type="number" id="light_intensity" name="light_intensity" min="0" max="100" step="1" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="raining">Was it raining?</label>
+            <input type="checkbox" id="raining" name="raining">
+          </div>
+          <button type="submit" class="btn btn-primary">Search</button>
+      </div>
       <?php
       $DATABASE_HOST = 'localhost';
       $DATABASE_USER = 'root';
@@ -43,7 +67,7 @@ if (!isset($_SESSION['loggedin'])) {
       <thead>
         <tr>
           <td>Date & Time</td>
-          <td>Soil Moisture</td>
+          <td>Soil moisture</td>
           <td>Light inensity</td>
           <td>Was it raining?</td>
         </tr>
