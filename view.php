@@ -11,9 +11,9 @@ if (!isset($_SESSION['loggedin'])) {
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Home Page</title>
+    <title>Garden Logger - View</title>
     <link href="style.css" rel="stylesheet" type="text/css">
-x    <!-- Bootstrap version 4.5.2 -->
+    <!-- Bootstrap version 4.5.2 -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -25,7 +25,7 @@ x    <!-- Bootstrap version 4.5.2 -->
       <div>
         <h1><a href="home.php">Garden Logger</a></h1>
         <a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
-        <a href="view.php"><i class="fas fa-eye"></i>View</a>
+        <a href="#"><i class="fas fa-eye"></i>View</a>
         <a href="edit.php"><i class="fas fa-edit"></i>Edit</a>
         <a href="settings.php"><i class="fas fa-cog"></i>Settings</a>
 				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
