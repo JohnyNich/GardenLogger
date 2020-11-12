@@ -39,7 +39,7 @@ $stmt->close();
     <nav class="navtop">
       <div>
         <h1><a href="home.php">Garden Logger</a></h1>
-        <a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
+        <a href="#"><i class="fas fa-user-circle"></i>Profile</a>
         <a href="view.php"><i class="fas fa-eye"></i>View</a>
         <a href="edit.php"><i class="fas fa-edit"></i>Edit</a>
         <a href="settings.php"><i class="fas fa-cog"></i>Settings</a>

@@ -20,7 +20,7 @@ if (!isset($_SESSION['loggedin'])) {
   <body class="loggedin">
     <nav class="navtop">
       <div>
-        <h1><a href="home.php">Garden Logger</a></h1>
+        <h1><a href="#">Garden Logger</a></h1>
         <a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
         <a href="view.php"><i class="fas fa-eye"></i>View</a>
         <a href="edit.php"><i class="fas fa-edit"></i>Edit</a>

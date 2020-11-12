@@ -1,18 +1,4 @@
 <?php
-session_start(); // Starts our sessio
-
-echo $_POST["date"]." - ";
-echo $_POST["moisture"]." - ";
-echo $_POST["light_intensity"]." - ";
-// Since checkboxes only post when they are checked, we have to see if the posted variable 'raining' has a set variable
-if (isset($_POST["raining"])) { // If the posted varaible 'raining' is set a value...
-  echo $_POST["raining"];
-} else {
-  echo "off";
-}
-?>
-
-<?php
 session_start();
 // If the user isn't logged in, we redirect them to the login page...
 if (!isset($_SESSION['loggedin'])) {
@@ -67,6 +53,7 @@ if (!isset($_SESSION['loggedin'])) {
             <input type="checkbox" id="raining" name="raining">
           </div>
           <button type="submit" class="btn btn-primary">Search</button>
+          <button href="view.php" class="btn btn-secondary">Clear search</button>
       </div>
       <?php
       $DATABASE_HOST = 'localhost';
@@ -75,21 +62,41 @@ if (!isset($_SESSION['loggedin'])) {
       $DATABASE_NAME = 'compsci_ia';
 
       $mysqli = new mysqli($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-      $query = "SELECT * FROM garden WHERE";
+      $query = "SELECT * FROM garden";
 
-      $conditions = array(3);
+      $conditions = array();
 
       if ($_POST["date"] != "") {
-        $conditions[0] = "'datetime' = ".$_POST['date'];
+        $conditions[0] = "datetime = ".$_POST['date'];
       }
 
       if ($_POST["moisture"] != "") {
-        $conditions[1] = "'moisture' = ".$_POST['moisture'];
+        $conditions[1] = "moisture = ".$_POST['moisture'];
       }
 
       if ($_POST["light_intensity"] != "") {
-        $conditions[2]
+        $conditions[2] = "light_intensity = ".$_POST["light_intensity"];
       }
+
+      if (isset($_POST["raining"])) { // If the posted varaible 'raining' is set a value...
+        $conditions[3] = "is_raining = 1";
+      }
+
+      if (count($conditions) != 0) {
+        $query = $query." WHERE ";
+        $first = true;
+        for ($x = 0; $x < 4; $x++) {
+          if (isset($conditions[$x])) { // If conditions[x] has been assigned a value...
+            if ($first == true) {
+              $query = $query.$conditions[$x];
+            } else {
+              $query = $query." AND ".$conditions[$x];
+            }
+          }
+        }
+      }
+
+      // echo $query;
 
       echo '<table class="table table-hover">
       <thead>
