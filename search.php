@@ -56,10 +56,7 @@ if (!isset($_SESSION['loggedin'])) {
           <button href="view.php" class="btn btn-secondary">Clear search</button>
       </div>
       <?php
-      $DATABASE_HOST = 'localhost';
-      $DATABASE_USER = 'root';
-      $DATABASE_PASS = ''; // Put whatever the database password is between the apostrephes.
-      $DATABASE_NAME = 'compsci_ia';
+      include_once "config.php";
 
       $mysqli = new mysqli($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
       $query = "SELECT * FROM garden";

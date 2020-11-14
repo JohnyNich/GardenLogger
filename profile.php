@@ -6,10 +6,7 @@ if (!isset($_SESSION['loggedin'])) {
   exit;
 }
 
-$DATABASE_HOST = 'localhost';
-$DATABASE_USER = 'root';
-$DATABASE_PASS = ''; // Put whatever the database password is between the apostrephes.
-$DATABASE_NAME = 'compsci_ia';
+include_once "config.php";
 
 $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
 if (mysqli_connect_errno()) {
