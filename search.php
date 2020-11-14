@@ -50,7 +50,11 @@ if (!isset($_SESSION['loggedin'])) {
           </div>
           <div class="form-group">
             <label for="raining">Was it raining?</label>
-            <input type="checkbox" id="raining" name="raining">
+            <select class="form-control" name="raining" id="raining">
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+              <option value="either" selected>Either</option>
+            </select>
           </div>
           <button type="submit" class="btn btn-primary">Search</button>
           <button href="view.php" class="btn btn-secondary">Clear search</button>
@@ -75,8 +79,14 @@ if (!isset($_SESSION['loggedin'])) {
         $conditions[2] = "light_intensity = ".$_POST["light_intensity"];
       }
 
-      if (isset($_POST["raining"])) { // If the posted varaible 'raining' is set a value...
-        $conditions[3] = "is_raining = 1";
+      switch($_POST["raining"]) {
+        case "yes":
+          $conditions[3] = "is_raining = 1";
+          break;
+        case "no":
+          $conditions[3] = "is_raining = 0";
+          break;
+        case "either":
       }
 
       if (count($conditions) != 0) {

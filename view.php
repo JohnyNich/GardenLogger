@@ -51,7 +51,11 @@ if (!isset($_SESSION['loggedin'])) {
           </div>
           <div class="form-group">
             <label for="raining">Was it raining?</label>
-            <input type="checkbox" id="raining" name="raining">
+            <select class="form-control" name="raining" id="raining">
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+              <option value="either" selected>Either</option>
+            </select>
           </div>
           <button type="submit" class="btn btn-primary">Search</button>
       </div>
