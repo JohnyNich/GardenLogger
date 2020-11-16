@@ -13,6 +13,7 @@ if (!isset($_SESSION['loggedin'])) {
     <meta charset="utf-8">
     <title>Garden Logger - View</title>
     <link href="style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
     <!-- Bootstrap version 4.5.2 -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
