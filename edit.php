@@ -16,11 +16,16 @@ if (!isset($_SESSION['loggedin'])) {
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
     <!-- Bootstrap version 4.5.2 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- jQuery code I'm using -->
+    <script src="script.js"></script>
   </head>
-  <body class="loggedin">
+  <body class="loggedin" id="editpage">
     <nav class="navtop">
       <div>
-        <h1><a href="#">Garden Logger</a></h1>
+        <h1><a href="home.php">Garden Logger</a></h1>
         <a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
         <a href="view.php"><i class="fas fa-eye"></i>View</a>
         <a href="#"><i class="fas fa-edit"></i>Edit</a>
@@ -29,7 +34,7 @@ if (!isset($_SESSION['loggedin'])) {
       </div>
     </nav>
     <div class="content">
-      <h2>Edit</h2>
+      <h2 id='test'>Edit</h2>
       <!-- Nav tabs -->
       <ul class="nav nav-tabs">
         <li class="nav-item">
@@ -46,16 +51,50 @@ if (!isset($_SESSION['loggedin'])) {
       <!-- Tabs -->
       <div class="tab-content">
         <div class="tab-pane container active" id="add">
-          <form action="add.php" target="dummyframe" method="post">
-            <label for="date">Date</label>
-            <input type="date" id="date" name="date" class="form-control" required>
-            <label for="moisture">Soil moisture</label>
-            <input type="number" id="moisture" name="moisture" class="form-control" min="0" max="100" required>
-            <label for="light_intensity">Light intensity</label>
-            <input type="number" id="light_intensity" name="light_intensity" class="form-control" min="0" max="100" required>
-            <label for="raining" 
+          <form id="addForm">
+            <div class="form-group">
+              <label for="date">Date</label>
+              <input type="date" id="date" name="date" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label for="moisture">Soil moisture</label>
+              <input type="number" id="moisture" name="moisture" class="form-control" min="0" max="100" required>
+            </div>
+            <div class="form-group">
+              <label for="light_intensity">Light intensity</label>
+              <input type="number" id="light_intensity" name="light_intensity" class="form-control" min="0" max="100" required>
+            </div>
+            <div class="form-group">
+              <label for="raining">Was it raining?</label>
+              <select id="raining" name="raining" class="form-control">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Add</button>
+          </form>
+        </div>
+      </div>
     </div>
-    <!-- This iframe here is basically an invisible tab where the PHP form will run -->
-    <iframe name="dummyframe" id="dummyframe" style="display:none;"></iframe>
+    <!-- Modals -->
+    <div class="modal" id="alert-duplicate">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Duplicate alert</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <p>Boop</p>
+          </div>
+          <!-- Modal footer -->
+          <div class='modal-footer'>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
