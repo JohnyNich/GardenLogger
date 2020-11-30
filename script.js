@@ -26,4 +26,19 @@ $(document).ready(function(){
       console.error("The following error has occured: " + textStatus, errorThrown);
     });
   });
+
+  // Replace stuff (from modal)
+  $("#replace").click(function() {
+    // This is essentially just the same code from above, for adding to the table, except it sends the data to replace.php
+    var form = $("#addForm");
+    var serializedData = form.serialize();
+    var request = $.ajax({
+      url: 'replace.php',
+      type: 'post',
+      data: serializedData,
+      success: function(response) {
+        console.log(response);
+      }
+    })
+  });
 });

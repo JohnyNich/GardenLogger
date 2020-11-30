@@ -12,9 +12,9 @@ if (mysqli_connect_errno()) {
 
 $sql = "INSERT INTO garden (datetime, moisture, light_intensity, is_raining) VALUES ('".$_POST["date"]."', '".$_POST["moisture"]."', '".$_POST["light_intensity"]."', ".$_POST["raining"].")";
 
+// Since the jQuery code requires a response in the form of "duplicate", I can't add any aditional testing/comfirmation messages, as that'll interfere with the code
 if ($con->query($sql) === TRUE) {
   // echo "New record created successfully";
-// Stuff below is for future implementation of a system to alert users if there is a duplicate entry
 } else {
   // echo "Error: ".$sql."<br>".$con->error; // For bug testing
   if (substr($con->error, 0, 15) === "Duplicate entry") {
