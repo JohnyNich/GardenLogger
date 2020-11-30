@@ -87,11 +87,13 @@ if (!isset($_SESSION['loggedin'])) {
           </div>
           <!-- Modal body -->
           <div class="modal-body">
-            <p>Boop</p>
+            <p>An entry in the table already exists with that date. Only one entry is allowed per date.</p>
+            <p>To continue, you can either keep the existing entry in the table, or you can replace it with this entry.<p>
           </div>
           <!-- Modal footer -->
           <div class='modal-footer'>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Do nothing</button>
+            <button type="button" id="replace" class="btn btn-danger" data-dismiss="modal">Replace entry</button>
           </div>
         </div>
       </div>

@@ -1,4 +1,6 @@
 $(document).ready(function(){
+
+  // Add form stuff
   $('#addForm').submit(function(e){
     e.preventDefault();
     var form = $(this);
@@ -7,8 +9,11 @@ $(document).ready(function(){
       url: 'add.php',
       type: 'post',
       data: serializedData,
-      success: function(response){
+      success: function(response) {
         console.log(response);
+        if (response == "duplicate") {
+          $("#alert-duplicate").modal("show");
+        }
       }
     });
 
