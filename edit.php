@@ -171,5 +171,26 @@ if (!isset($_SESSION['loggedin'])) {
         </div>
       </div>
     </div>
+    <!-- Modal for non-existent entry (delete) -->
+    <div class="modal" id="alert-non-existent-entry-delete">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Error: Non-existent entry</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <p>The entry you are trying to delete does not exist.</p>
+            <p>There are no entries in the table which meet the conditions specified. Therefore, nothing has been deleted.</p>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
