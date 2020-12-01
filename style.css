@@ -154,6 +154,11 @@ body.loggedin {
   margin: 0 0 10px 0;
 }
 
+/* For edit page */
+form p {
+  padding: 0px !important;
+}
+
 /* For search box */
 
 input[type=checkbox] {
