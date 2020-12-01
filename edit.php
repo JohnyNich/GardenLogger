@@ -107,7 +107,7 @@ if (!isset($_SESSION['loggedin'])) {
         <div class="modal-content">
           <!-- Modal header -->
           <div class="modal-header">
-            <h4 class="modal-title">Duplicate alert</h4>
+            <h4 class="modal-title">Error: Duplicate entry</h4>
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
           <!-- Modal body -->
@@ -119,6 +119,28 @@ if (!isset($_SESSION['loggedin'])) {
           <div class='modal-footer'>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Do nothing</button>
             <button type="button" id="replace" class="btn btn-danger" data-dismiss="modal">Replace entry</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal for non-existent entry -->
+    <div class="modal" id="alert-non-existent-entry">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <!-- Modal header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Error: Non-existent entry</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <p>The entry you are trying to change does not exist.</p>
+            <p>Please change the date to a date that already exists withinh the table</p>
+            <p>If you want to add an entry to the table, please use the 'Add' tab</p>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
           </div>
         </div>
       </div>
