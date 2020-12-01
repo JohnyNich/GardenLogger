@@ -17,7 +17,7 @@ function replaceAJAX(formID) {
 
 $(document).ready(function(){
 
-  // Add form stuff
+  // Add form code
   $('#addForm').submit(function(e){
     e.preventDefault();
     var form = $(this);
@@ -49,8 +49,23 @@ $(document).ready(function(){
     replaceAJAX("#addForm");
   });
 
+  // Change form code
   $("#changeForm").submit(function(e){
     e.preventDefault();
     replaceAJAX($(this));
-  })
+  });
+
+  $("#deleteForm").submit(function(e) {
+    e.preventDefault();
+    var form = $(this);
+    var serializedData = form.serialize();
+    var request = $.ajax({
+      url: 'delete.php',
+      type: 'post',
+      data: serializedData,
+      success: function(response) {
+        console.log(response);
+      }
+    });
+  });
 });

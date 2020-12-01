@@ -83,7 +83,7 @@ if (!isset($_SESSION['loggedin'])) {
             <div class="form-group">
               <p>Below, leave blank any fields that you don't want to stay the same</p>
               <label for="moisture">Soil moisture</label>
-              <input type="number" id="moisture" name="moisture" class="form-control" min="0" max="100" required>
+              <input type="number" id="moisture" name="moisture" class="form-control" min="0" max="100">
             </div>
             <div class="form-group">
               <label for="light_intensity">Light intensity</label>
@@ -97,6 +97,32 @@ if (!isset($_SESSION['loggedin'])) {
               </select>
             </div>
             <button type="submit" class="btn btn-primary">Chnage</button>
+          </form>
+        </div>
+        <div class="tab-pane container fade" id="delete">
+          <form id="deleteForm">
+            <p>All entires which meet the conditions entered in the below form will be deleted from the table</p>
+            <div class="form-group">
+              <label for="date">Date:</label>
+              <input type="date" id="date" name="date" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="moisture">Soil moisture</label>
+              <input type="number" id="moisture" name="moisture" class="form-control" min="0" max="100">
+            </div>
+            <div class="form-group">
+              <label for="light_intensity">Light intensity</label>
+              <input type="number" id="light_intensity" name="light_intensity" class="form-control" min="0" max="100">
+            </div>
+            <div class="form-group">
+              <label for="raining">Was it raining?</label>
+              <select id="raining" name="raining" class="form-control">
+                <option value="either">Either</otpion>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-danger">Delete</button>
           </form>
         </div>
       </div>
