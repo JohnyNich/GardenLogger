@@ -82,6 +82,9 @@ $(document).ready(function(){
       data: serializedData,
       success: function(response) {
         console.log(response);
+        if (response == "entry does not exist") {
+          $("#alert-non-existent-entry-delete").modal("show");
+        }
       }
     });
   });
