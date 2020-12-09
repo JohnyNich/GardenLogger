@@ -20,6 +20,8 @@ if (!isset($_SESSION['loggedin'])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- JavaScript/jQuery code I'm using -->
+    <script src="script.js"></script>
   </head>
   <body class="loggedin">
     <nav class="navtop">
@@ -36,7 +38,7 @@ if (!isset($_SESSION['loggedin'])) {
       <h2>View table</h2>
       <button type="button" data-toggle="collapse" data-target="#search" class="btn btn-primary btn-block">Search</button>
       <div id="search" class="collapse">
-        <form action="search.php" method="post">
+        <form method="post">
           <div class="form-group">
             <label for="date">Date:</label>
             <input type="date" id="date" name="date" class="form-control">
@@ -59,49 +61,7 @@ if (!isset($_SESSION['loggedin'])) {
           </div>
           <button type="submit" class="btn btn-primary">Search</button>
       </div>
-      <?php
-      include_once "config.php";
-
-      $mysqli = new mysqli($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-      $query = "SELECT * FROM garden";
-
-      echo '<table class="table table-hover">
-      <thead>
-        <tr>
-          <td>Date & Time</td>
-          <td>Soil moisture</td>
-          <td>Light inensity</td>
-          <td>Was it raining?</td>
-        </tr>
-      </thead>';
-
-      if ($result = $mysqli->query($query)) {
-        while ($row = $result->fetch_assoc()) {
-          $datetime = $row["datetime"];
-          $moisture = $row["moisture"];
-          $light_intensity = $row["light_intensity"];
-          $is_raining = $row["is_raining"];
-
-          echo '
-          <tbody>
-          <tr>
-            <td>'.$datetime.'</td>
-            <td>'.$moisture.'</td>
-            <td>'.$light_intensity.'</td>
-            <td>';
-            if ($is_raining == 0) {
-              echo "No";
-            } else {
-              echo "Yes";
-            }
-            echo '</td>
-          </tr>';
-        }
-        $result->free();
-        echo '</tbody>
-        </table>';
-      }
-      ?>
+      <table class="table table-hover" id="table"></table>
     </div>
   </body>
 </html>

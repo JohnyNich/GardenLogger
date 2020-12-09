@@ -16,7 +16,24 @@ function replaceAJAX(formID) {
 }
 
 $(document).ready(function(){
+  console.log("boop");
+  // Loads table, which will happen automatically when the page is loaded
+  $("#table").load("search.php");
 
+  // Updates table view (when search button is pressed)
+  $("#search form").submit(function(e){
+    e.preventDefault();
+    var form = $(this);
+    var serializedData = form.serialize();
+    var request = $.ajax({
+      url: "search.php",
+      type: 'post',
+      data: serializedData,
+      success: function(response) {
+        $("#table").html(response);
+      }
+    })
+  })
   // Add form code
   $('#addForm').submit(function(e){
     e.preventDefault();
