@@ -1,6 +1,6 @@
 <?php
 session_start();
-// If the user isn't logged in, we redirect them to the login page...
+// If the user isn't logged in, then we'll redirect them to login page
 if (!isset($_SESSION['loggedin'])) {
   header('Location: index.html');
   exit;
@@ -31,11 +31,11 @@ if (!isset($_SESSION['loggedin'])) {
     <div class="content">
       <h2>Home Page</h2>
       <!-- Weather widget -->
-      <a class="weatherwidget-io" href="https://forecast7.com/en/22d28114d16/hong-kong-island/" data-label_1="HONG KONG" data-label_2="WEATHER" data-theme="original" >HONG KONG WEATHER</a>
+      <a class="weatherwidget-io" href="https://forecast7.com/en/<?=$_SESSION['location']?>/" data-label_1= "<?=$_SESSION['location_display']?>" data-label_2="WEATHER" data-theme="original" >HONG KONG WEATHER</a>
       <script>
         !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
       </script>
-      <p>Welcome back, <?=$_SESSION['name']?>!</p>
+      <p>Welcome back, <?=$_SESSION['name']?><br>You have acess to the following table: <b><?=$_SESSION['table']?></b></p>
     </div>
   </body>
 </html>

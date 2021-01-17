@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once "config.php";
 
 // echo "PHP working!";
@@ -10,7 +11,7 @@ if (mysqli_connect_errno()) {
   exit('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
 
-$sql = "INSERT INTO garden (datetime, moisture, light_intensity, is_raining) VALUES ('".$_POST["date"]."', '".$_POST["moisture"]."', '".$_POST["light_intensity"]."', ".$_POST["raining"].")";
+$sql = "INSERT INTO " . $_SESSION['table'] . " (datetime, moisture, light_intensity, is_raining) VALUES ('".$_POST["date"]."', '".$_POST["moisture"]."', '".$_POST["light_intensity"]."', ".$_POST["raining"].")";
 
 // Since the jQuery code requires a response in the form of "duplicate", I can't add any aditional testing/comfirmation messages, as that'll interfere with the code
 if ($con->query($sql) === TRUE) {

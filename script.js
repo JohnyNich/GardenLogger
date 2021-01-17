@@ -16,7 +16,6 @@ function replaceAJAX(formID) {
 }
 
 $(document).ready(function(){
-  console.log("boop");
   // Loads table, which will happen automatically when the page is loaded
   $("#table").load("search.php");
 

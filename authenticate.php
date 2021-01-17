@@ -34,6 +34,12 @@ if ($stmt = $con->prepare('SELECT id, password FROM accounts WHERE username = ?'
       $_SESSION['loggedin'] = TRUE;
       $_SESSION['name'] = $_POST['username'];
       $_SESSION['id'] = $id;
+
+      // Now, we will store some frequently-used information from the accounts table as session variables, such as the table that the user has access to
+      $_SESSION['table'] = $con->query("SELECT table_select FROM accounts WHERE username = \"" . $_POST['username'] . "\"")->fetch_assoc()["table_select"];
+      $_SESSION['location'] = $con->query("SELECT location FROM accounts WHERE username = \"" . $_POST['username'] . "\"")->fetch_assoc()["location"]; // Note: Add "or die($con->error)" to $con->query to find out what's wrong, if an error occurs
+      $_SESSION['location_display'] = $con->query("SELECT location_display FROM accounts WHERE username = \"" . $_POST['username'] . "\"")->fetch_assoc()["location_display"]; // Note: Add "or die($con->error)" to $con->query to find out what's wrong, if an error occurs
+
       header('Location: home.php');
     } else {
       // Incorrect password

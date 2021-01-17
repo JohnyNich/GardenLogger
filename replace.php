@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once "config.php";
 
 $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
@@ -8,9 +9,9 @@ if (mysqli_connect_errno()) {
   exit('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
 
-$check = $con->query("SELECT * FROM garden WHERE datetime = '".$_POST["date"]."'");
-$sql_del = "DELETE FROM garden WHERE datetime = '".$_POST["date"]."'";
-$sql_add = "INSERT INTO garden (datetime, moisture, light_intensity, is_raining) VALUES ('".$_POST["date"]."', '".$_POST["moisture"]."', '".$_POST["light_intensity"]."', ".$_POST["raining"].")";
+$check = $con->query("SELECT * FROM ".$_SESSION['table']." WHERE datetime = '".$_POST["date"]."'");
+$sql_del = "DELETE FROM ".$_SESSION['table']." WHERE datetime = '".$_POST["date"]."'";
+$sql_add = "INSERT INTO ".$_SESSION['table']" (datetime, moisture, light_intensity, is_raining) VALUES ('".$_POST["date"]."', '".$_POST["moisture"]."', '".$_POST["light_intensity"]."', ".$_POST["raining"].")";
 
 if (mysqli_num_rows($check) == 0) { // If the entry does NOT exist (meaning the user is trying to change a row that doesn't exist)
   echo "entry does not exist";

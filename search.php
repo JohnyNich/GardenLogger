@@ -1,10 +1,11 @@
 <?php
+session_start();
 include_once "config.php";
 
 $mysqli = new mysqli($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-$query = "SELECT * FROM garden";
+$query = "SELECT * FROM " . $_SESSION["table"];
 
-// Check if any of the form has been submited, by checking if the POST variables have been asignedcx
+// Check if any of the form has been submited, by checking if the POST variables have been asigned
 if (isset($_POST["date"])) {
   // This means that a search is being performed, as a form has been posted through the search button
   $conditions = array();

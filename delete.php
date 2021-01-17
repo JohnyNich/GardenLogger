@@ -1,4 +1,5 @@
 <?php
+session_start();
 include_once "config.php";
 
 $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
@@ -22,8 +23,8 @@ foreach ($_POST as $value) {
 }
 
 $where = "datetime = ".$parameters[0]." AND moisture = ".$parameters[1]." AND light_intensity = ".$parameters[2]." AND is_raining = ".$parameters[3];
-$check = $con->query("SELECT * FROM garden WHERE ".$where);
-$sql = "DELETE FROM garden WHERE ".$where;
+$check = $con->query("SELECT * FROM ".$_SESSION['table']." WHERE ".$where);
+$sql = "DELETE FROM ".$_SESSION['table']." WHERE ".$where;
 
 if (mysqli_num_rows($check) == 0) { // If the entry does NOT exist (meaning the user is trying to change a row that doesn't exist)
   echo "entry does not exist";
